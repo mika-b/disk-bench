@@ -4,6 +4,7 @@ import os
 import json
 
 import sh
+sh = sh.bake(_return_cmd=True)
 
 JobStat = namedtuple('JobStat', 'name bw iops usr_cpu sys_cpu')
 
