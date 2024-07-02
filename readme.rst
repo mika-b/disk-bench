@@ -40,7 +40,7 @@ Usage
     $ disk-bench /mnt/disk-to-test/whatever --style=csv
 
     # Quick
-    $ disk-bench /mnt/disk-to-test/whatever --loops=1 --size=1M
+    $ disk-bench /mnt/disk-to-test/whatever --seq-size 4G --runtime 1m
 
 
 Command Details

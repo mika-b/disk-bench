@@ -9,10 +9,12 @@ sh = sh.bake(_return_cmd=True)
 JobStat = namedtuple('JobStat', 'name bw iops usr_cpu sys_cpu')
 
 
-def fio(dpath, seq_size, rand_size, direct):
+def fio(dpath, seq_size, rand_size, direct, runtime):
     randsz_opt = '--size={}'.format(rand_size)
     seqsz_opt = '--size={}'.format(seq_size)
     direct_val = '1' if direct else '0'
+    if runtime:
+        runtime = '--runtime={}'.format(runtime)
 
     result = sh.fio(
         '--directory', dpath,
@@ -22,6 +24,8 @@ def fio(dpath, seq_size, rand_size, direct):
         '--ioengine=libaio',
         '--direct={}'.format(direct_val),
         '--gtod_reduce=1',
+        '--time_based' if runtime else '',
+        runtime,
         '--name=seqread', '--bs=1m', '--rw=read', seqsz_opt,
         '--name=seqwrite', '--bs=1m', '--rw=write', seqsz_opt,
         '--name=randread', '--bs=512k', '--rw=randread', randsz_opt,

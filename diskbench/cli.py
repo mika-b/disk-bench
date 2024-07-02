@@ -14,10 +14,11 @@ log = logging.getLogger(__name__)
 @click.argument('fpath', type=click.Path(exists=False))
 @click.option('--seq-size', default='64G')
 @click.option('--rand-size', default='4G')
+@click.option('--runtime', default='')
 @click.option('--style', default='table', type=click.Choice(['table', 'csv']))
 @click.option('--direct', is_flag=True, default=False)
-def db(fpath, style, seq_size, rand_size, direct):
-    stats = fio.fio(fpath, seq_size, rand_size, direct)
+def db(fpath, style, seq_size, rand_size, direct, runtime):
+    stats = fio.fio(fpath, seq_size, rand_size, direct, runtime)
     click.echo(format_stats(stats, style))
 
 
