@@ -32,7 +32,7 @@ def fio(dpath, seq_size, rand_size, direct, runtime):
         '--name=randwrite', '--bs=512k', '--rw=randwrite', randsz_opt,
         '--name=4kQD32read', '--bs=4k', '--iodepth=32', '--rw=randread', randsz_opt,
         '--name=4kQD32write', '--bs=4k', '--iodepth=32', '--rw=randwrite', randsz_opt,
-        '--name=4kQD16', '--bs=4k', '--iodepth=16', '--rw=randrw', '--rwmixread=65', randsz_opt,
+        '--name=4kQD16mix', '--bs=4k', '--iodepth=16', '--rw=randrw', '--rwmixread=65', randsz_opt,
     )
 
     db_tmp_fpath = os.path.join(dpath, 'disk~bench.tmp')
