@@ -1,5 +1,5 @@
 import os.path as osp
-from setuptools import setup, find_namespace_packages
+from setuptools import setup
 
 cdir = osp.abspath(osp.dirname(__file__))
 README = open(osp.join(cdir, 'readme.rst')).read()
@@ -27,7 +27,7 @@ setup(
         'Programming Language :: Python :: 3.7',
     ],
     license='MIT',
-    packages=find_namespace_packages(include=['diskbench', 'diskbench.*']),
+    packages=['diskbench'],
     include_package_data=True,
     install_requires=[
         'click',

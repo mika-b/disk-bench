@@ -5,7 +5,7 @@ import logging
 import click
 import tableprint as tp
 
-from diskbench import fio
+from . import fio
 
 log = logging.getLogger(__name__)
 
