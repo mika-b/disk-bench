@@ -22,15 +22,6 @@ def db(fpath, style, seq_size, rand_size, direct):
 
 
 def format_stats(stats, style):
-    def format_stat(stat):
-        return (
-            stat.name,
-            '{:,.1f}'.format(stat.bw),
-            '{:,.0f}'.format(stat.iops),
-            '{:,.1f}%'.format(stat.usr_cpu),
-            '{:,.1f}%'.format(stat.sys_cpu),
-        )
-
     out_fo = io.StringIO()
     header = ['Stats (MB/s)']
     header += [stat.name for stat in stats]
